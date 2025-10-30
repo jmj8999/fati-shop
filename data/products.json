@@ -1,0 +1,26 @@
+[
+  {
+    "name": "کفش اسپرت مردانه",
+    "price": "۳۵۰,۰۰۰",
+    "description": "کفش سبک و راحت مناسب پیاده‌روی روزانه",
+    "image": "https://via.placeholder.com/300x200?text=کفش+مردانه"
+  },
+  {
+    "name": "کیف دستی زنانه",
+    "price": "۲۸۰,۰۰۰",
+    "description": "کیف شیک با طراحی مینیمال و جنس چرمی مصنوعی",
+    "image": "https://via.placeholder.com/300x200?text=کیف+زنانه"
+  },
+  {
+    "name": "ساعت مچی کلاسیک",
+    "price": "۴۵۰,۰۰۰",
+    "description": "ساعت مچی کلاسیک با بند چرمی و عقربه‌های طلایی",
+    "image": "https://via.placeholder.com/300x200?text=ساعت+مچی"
+  },
+{
+  "name": "هدفون بلوتوثی",
+  "description": "دارای باتری قوی، صدای واضح و نویزگیر فعال",
+  "price": 690000,
+  "image": "images/headphones1.jpg"
+}
+]
