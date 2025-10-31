@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>کاربران ثبت‌شده</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: radial-gradient(circle at top, #2e003e, #000);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    table {
+      border-collapse: collapse;
+      width: 80%;
+      margin-top: 20px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      text-align: center;
+    }
+    th {
+      background: rgba(255,255,255,0.2);
+    }
+    input {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      margin-top: 10px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #7d3cff;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>ورود مدیر</h2>
+  <input type="password" id="password" placeholder="رمز ورود">
+  <button onclick="checkPassword()">ورود</button>
+
+  <table id="userTable" style="display:none;">
+    <thead>
+      <tr>
+        <th>نام کاربری</th>
+        <th>شماره تلفن</th>
+      </tr>
+    </thead>
+    <tbody id="userList"></tbody>
+  </table>
+
+  <script>
+    function checkPassword() {
+      const pass = document.getElementById('password').value;
+      if (pass === 'shoma1234') {
+        document.getElementById('password').style.display = 'none';
+        document.querySelector('button').style.display = 'none';
+        document.querySelector('h2').textContent = 'کاربران ثبت‌شده';
+        document.getElementById('userTable').style.display = 'table';
+        showUsers();
+      } else {
+        alert('رمز اشتباه است');
+      }
+    }
+
+    function showUsers() {
+      const users = JSON.parse(localStorage.getItem('users') || '[]');
+      const list = document.getElementById('userList');
+      list.innerHTML = '';
+      users.forEach(u => {
+        const tr = document.createElement('tr');
+
+    
+        list.appendChild(tr);
+      });
+    }
+  </script>
+</body>users.forEach(u => {
+  const tr = document.createElement("tr");
+  tr.innerHTML = 
+    <td>${u.username}</td>
+    <td>${u.phone}</td>
+  ;
+  tableBody.appendChild(tr);
+});
+</html>
