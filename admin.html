@@ -46,26 +46,8 @@
 
   <script src="admin.js"></script>
 
-<script>
-  document.querySelector("form").addEventListener("submit", function (e) {
-    e.preventDefault();
 
-    const name = e.target[0].value;
-    const price = e.target[1].value;
-    const image = e.target[2].value;
-    const desc = e.target[3].value;
 
-    const product = { name, price, image, desc };
-
-    const products = JSON.parse(localStorage.getItem("products")) || [];
-    products.push(product);
-
-    localStorage.setItem("products", JSON.stringify(products));
-    alert(":white_check_mark: محصول با موفقیت اضافه شد!");
-
-    e.target.reset();
-  });
-</script>
 
 </body>
 </html>

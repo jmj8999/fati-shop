@@ -108,24 +108,41 @@
     </footer>
     <script src="script.js"></script>
   </body>
-<script>
-  const container = document.querySelector(".grid");
-  const products = JSON.parse(localStorage.getItem("products")) || [];
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  try {
+    const products = JSON.parse(localStorage.getItem("products")) || [];
+    const container = document.querySelector(".grid");
 
-  container.innerHTML = products
-    .map(
-      (p) => 
-      <div class="bg-white rounded-lg shadow p-4 text-center">
-        <img src="${p.image}" alt="${p.name}" class="w-full h-48 object-cover rounded-t-lg"/>
-        <h3 class="text-lg font-bold mt-2">${p.name}</h3>
-        <p class="text-purple-600">${p.price} تومان</p>
-        <p class="text-gray-500 text-sm mt-1">${p.desc}</p>
-        <button class="w-full bg-purple-600 hover:bg-purple-700 text-white py-1 mt-2 rounded">افزودن به سبد</button>
-      </div>
-    )
-    .join("");
+    if (!container) {
+      console.error("عنصر .grid پیدا نشد");
+      return;
+    }
+
+    container.innerHTML = products
+      .map((p) => {
+        const name = p.name || "بدون نام";
+        const price = p.price || "0";
+        const image = p.image || "";
+        const desc = p.desc || "";
+
+        return 
+          <div class="bg-white rounded-lg shadow p-4">
+            <img src="${image}" alt="${name}" class="w-full rounded" onerror="this.style.display='none'"/>
+            <h3 class="text-lg font-bold mt-2">${name}</h3>
+            <p class="text-purple-600 font-semibold">${price} تومان</p>
+            <p class="text-gray-500 text-sm mt-1">${desc}</p>
+            <button class="w-full bg-purple-600 hover:bg-purple-700 text-white mt-3 py-2 rounded">
+              افزودن به سبد
+            </button>
+          </div>
+        ;
+      })
+      .join("");
+  } catch (err) {
+    console.error("خطا:", err);
+  }
+});
 </script>
-
-
-
+</body>
 </html>
