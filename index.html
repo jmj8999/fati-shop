@@ -30,6 +30,7 @@
       </button>
     </header>
 
+<div id="productList" class="products"></div>
     <section
       class="text-center py-24 bg-gradient-to-b from-[#1A1A1A] to-[#0F0F0F]"
     >
@@ -105,5 +106,26 @@
     <footer class="bg-[#1A1A1A] text-center py-6 mt-10">
       <p class="text-gray-500">© 2025 فروشگاه لوکس من - همه حقوق محفوظ است</p>
     </footer>
+    <script src="script.js"></script>
   </body>
+<script>
+  const container = document.querySelector(".grid");
+  const products = JSON.parse(localStorage.getItem("products")) || [];
+
+  container.innerHTML = products
+    .map(
+      (p) => 
+      <div class="bg-white rounded-lg shadow p-4 text-center">
+        <img src="${p.image}" alt="${p.name}" class="w-full h-48 object-cover rounded-t-lg"/>
+        <h3 class="text-lg font-bold mt-2">${p.name}</h3>
+        <p class="text-purple-600">${p.price} تومان</p>
+        <p class="text-gray-500 text-sm mt-1">${p.desc}</p>
+        <button class="w-full bg-purple-600 hover:bg-purple-700 text-white py-1 mt-2 rounded">افزودن به سبد</button>
+      </div>
+    )
+    .join("");
+</script>
+
+
+
 </html>
