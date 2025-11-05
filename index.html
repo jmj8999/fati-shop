@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>فروشگاه لوکس من</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      body {
-        font-family: "Vazirmatn", sans-serif;
-      }
-    </style>
-  </head>
-
+  
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>فروشگاه لوکس من</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: "Vazirmatn", sans-serif;
+    }
+  </style>
+</head>
   <body class="bg-[#0F0F0F] text-gray-200">
     <header
       class="flex justify-between items-center px-6 py-4 bg-[#1A1A1A] shadow-lg"
@@ -30,7 +31,6 @@
       </button>
     </header>
 
-<div id="productList" class="products"></div>
     <section
       class="text-center py-24 bg-gradient-to-b from-[#1A1A1A] to-[#0F0F0F]"
     >
@@ -48,101 +48,27 @@
     <section class="px-6 py-12">
       <h3 class="text-2xl font-semibold text-purple-400 mb-6 text-center">
         محصولات منتخب
+
       </h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        <div
-          class="bg-[#1A1A1A] p-4 rounded-2xl shadow-lg hover:shadow-purple-500/30 transition"
-        >
-          <img
-            src="https://via.placeholder.com/300x200"
-            alt="محصول"
-            class="rounded-xl mb-4"
-          />
-          <h4 class="text-lg font-semibold mb-2">محصول شماره ۱</h4>
-          <p class="text-gray-400 mb-4">توضیح کوتاه محصول</p>
-          <button
-            class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-xl"
-          >
-            افزودن به سبد
-          </button>
-        </div>
 
-        <div
-          class="bg-[#1A1A1A] p-4 rounded-2xl shadow-lg hover:shadow-purple-500/30 transition"
-        >
-          <img
-            src="https://via.placeholder.com/300x200"
-            alt="محصول"
-            class="rounded-xl mb-4"
-          />
-          <h4 class="text-lg font-semibold mb-2">محصول شماره ۲</h4>
-          <p class="text-gray-400 mb-4">توضیح کوتاه محصول</p>
-          <button
-            class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-xl"
-          >
-            افزودن به سبد
-          </button>
-        </div>
 
-        <div
-          class="bg-[#1A1A1A] p-4 rounded-2xl shadow-lg hover:shadow-purple-500/30 transition"
-        >
-          <img
-            src="https://via.placeholder.com/300x200"
-            alt="محصول"
-            class="rounded-xl mb-4"
-          />
-          <h4 class="text-lg font-semibold mb-2">محصول شماره ۳</h4>
-          <p class="text-gray-400 mb-4">توضیح کوتاه محصول</p>
-          <button
-            class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-xl"
-          >
-            افزودن به سبد
-          </button>
-        </div>
-      </div>
-    </section>
+      <section class="px-6 py-12">
+  <h3 class="text-2xl font-semibold text-purple-400 mb-6">محصولات منتخب</h3>
 
-    <footer class="bg-[#1A1A1A] text-center py-6 mt-10">
-      <p class="text-gray-500">© 2025 فروشگاه لوکس من - همه حقوق محفوظ است</p>
-    </footer>
-    <script src="script.js"></script>
-  </body>
-  <script>
-document.addEventListener("DOMContentLoaded", () => {
-  try {
-    const products = JSON.parse(localStorage.getItem("products")) || [];
-    const container = document.querySelector(".grid");
+  <div id="productsContainer" class="products-container">
+  <div class="product-card">
+    <img src="https://via.placeholder.com/300x200" alt="محصول نمونه">
+    <h3>نام محصول</h3>
+    <p>توضیحات کوتاه محصول</p>
+    <button>افزودن به سبد خرید</button>
+  </div>
+</div>
 
-    if (!container) {
-      console.error("عنصر .grid پیدا نشد");
-      return;
-    }
 
-    container.innerHTML = products
-      .map((p) => {
-        const name = p.name || "بدون نام";
-        const price = p.price || "0";
-        const image = p.image || "";
-        const desc = p.desc || "";
+    <footer class="bg-[#1A1A1A] text-center py-6">
+  <p class="text-gray-500">© 2025 همه حقوق محفوظ است</p>
+</footer>
 
-        return 
-          <div class="bg-white rounded-lg shadow p-4">
-            <img src="${image}" alt="${name}" class="w-full rounded" onerror="this.style.display='none'"/>
-            <h3 class="text-lg font-bold mt-2">${name}</h3>
-            <p class="text-purple-600 font-semibold">${price} تومان</p>
-            <p class="text-gray-500 text-sm mt-1">${desc}</p>
-            <button class="w-full bg-purple-600 hover:bg-purple-700 text-white mt-3 py-2 rounded">
-              افزودن به سبد
-            </button>
-          </div>
-        ;
-      })
-      .join("");
-  } catch (err) {
-    console.error("خطا:", err);
-  }
-});
-</script>
+<script src="script.js"></script>
 </body>
-</html>
+</html>S

@@ -1,13 +1,14 @@
 body {
   font-family: sans-serif;
   direction: rtl;
-  background: #f8f8f8;
+  background: #0f0f0f;
+  color: #e0e0e0;
   margin: 0;
   padding: 0;
 }
 
 header {
-  background: #2b2b2b;
+  background: #1a1a1a;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -24,35 +25,275 @@ header nav a {
 .hero {
   text-align: center;
   padding: 4rem 1rem;
-  background: #ffe082;
+  background: #3b0764;
+  color: white;
 }
 
+/* جایگزین کردن استایل محصولات — کل این بلاک را در style.css قرار بده */
 .products {
   padding: 2rem;
 }
 
-.product-list {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  flex-wrap: wrap;
+/* کانتینر گرید محصولات */
+#productsContainer,
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  align-items: start;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.product {
-  background: white;
+/* کارت محصول */
+.product,
+.product-card {
+  background: #1a1a1a;
+  color: #fff;
+  border-radius: 12px;
   padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 260px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
   text-align: center;
-  width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
-button {
-  background: #ff9800;
+/* عکس محصول */
+.product img,
+.product-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 0.6rem;
+}
+
+/* نام و توضیحات */
+.product h3,
+.product-card h3 {
+  font-size: 1.05rem;
+  margin: 0;
+  line-height: 1.2;
+  color: #fff;
+  word-break: break-word;
+}
+.product p,
+.product-card p {
+  margin: 0;
+  color: #cfcfcf;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  min-height: 2.2em; /* همگن کردن ارتفاع توضیحات */
+}
+
+/* قیمت */
+.product .price,
+.product-card .price {
+  margin-top: 0.4rem;
+  font-weight: 700;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+/* دکمه افزودن به سبد */
+.product button,
+.product-card button {
+  margin-top: 0.8rem;
+  background: #7e22ce;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 700;
+  transition: background 0.2s, transform 0.12s;
+  align-self: center;
+}
+
+/* همیشه دکمه در پایین کارت قرار بگیره */
+.product button,
+.product-card button {
+  margin-top: auto;
+}
+
+/* هاور دکمه */
+.product button:hover,
+.product-card button:hover {
+  background: #9333ea;
+  transform: translateY(-2px);
+}
+
+/* واکنشگرا: در موبایل کمتر فاصله و اندازه عکس کوچکتر */
+@media (max-width: 480px) {
+  .product img,
+  .product-card img { height: 120px; }
+  .products { padding: 1rem; }
+  #productsContainer { gap: 1rem; padding: 0.6rem; }
+}
+
+
+.product-card h3 {
+  font-size: 18px;
+  margin: 5px 0;
+}
+button {
+  background: #7e22ce;
+  border: none;
+  padding: 0.6rem 1rem;
   border-radius: 8px;
   cursor: pointer;
   color: white;
   font-weight: bold;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #9333ea;
+}
+
+footer {
+  background: #1a1a1a;
+  text-align: center;
+  padding: 1rem;
+  color: #aaa;
+}
+products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.product-card {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.product-card h3 {
+  font-size: 18px;
+  margin: 10px 0 5px;
+}
+
+.product-card p {
+  margin: 0;
+  font-weight: bold;
+  color: #444;
+}
+.delete-btn {
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  display: inline-block;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+}
+
+.delete-btn:hover {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.delete-btn:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.delete-btn.small {
+  padding: 4px 8px;
+  font-size: 13px;
+  border-radius: 5px;
+}
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.product-card {
+  background-color: rgb(14, 13, 13);
+  color: #e0d8d8;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.add-to-cart-btn {
+  background-color: #6c63ff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #5848d6;
+  transform: scale(1.05);
+}
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.product-card h3 {
+  color: #7e22ce;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.product-card p {
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.product-card button {
+  background-color: #7e22ce;
+  color: rgb(233, 219, 219);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.product-card button:hover {
+  background-color: #6b21a8;
 }

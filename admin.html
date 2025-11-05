@@ -4,15 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>مدیریت محصولات</title>
+
+<style>
+body {
+  background: red !important;
+}
+</style>
+
+  <link rel="stylesheet" href="../admin.css">
+  
+
+
   <style>
     body {
       font-family: sans-serif;
+      
+
+
       background: #f5f5f5;
       padding: 20px;
       direction: rtl;
     }
     form {
       background: white;
+
+
       padding: 20px;
       border-radius: 10px;
       max-width: 400px;
@@ -34,20 +50,16 @@
     }
   </style>
 </head>
+
 <body>
-  <h2 style="text-align:center;">افزودن محصول جدید</h2>
-  <form id="productForm">
-    <input type="text" id="name" placeholder="نام محصول" required>
-    <input type="number" id="price" placeholder="قیمت" required>
-    <input type="text" id="image" placeholder="لینک تصویر" required>
-    <textarea id="description" placeholder="توضیحات محصول" rows="3"></textarea>
-    <button type="submit">افزودن</button>
-  </form>
+<h2 style="text-align:center">افزودن محصول جدید</h2>
+<form id="productForm">
+  <input type="text" id="name" placeholder="نام محصول" required>
+  <input type="number" id="price" placeholder="قیمت" required>
+  <input type="text" id="image" placeholder="آدرس تصویر (اختیاری)">
+  <textarea id="description" placeholder="توضیحات محصول"></textarea>
+  <button type="submit">افزودن</button>
+</form>
 
-  <script src="admin.js"></script>
-
-
-
-
+<script src="admin.js"></script>
 </body>
-</html>

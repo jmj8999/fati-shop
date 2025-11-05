@@ -1,4 +1,4 @@
-const form = document.getElementById('productForm');
+const form = document.querySelector('form');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -14,6 +14,6 @@ form.addEventListener('submit', (e) => {
   products.push(product);
   localStorage.setItem('products', JSON.stringify(products));
 
-  alert(':white_check_mark: محصول با موفقیت اضافه شد!');
+  alert('✅ محصول اضافه شد');
   form.reset();
 });
